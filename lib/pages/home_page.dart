@@ -36,7 +36,11 @@ class _HomepageState extends State<Homepage> {
                   },
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.black,
-                  child: const Text("<"),
+                  child: const Icon(
+                      Icons.keyboard_return,
+                      size: 30,
+                      color: Colors.black26,
+                    ),
                 ),
               ),
               const Spacer(),
