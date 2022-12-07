@@ -62,7 +62,14 @@ class _CadastroPatrimonioState extends State<CadastroPatrimonio> {
                         null, //quando ha mais de um FloatingActionButton utilizar
                     backgroundColor: Colors.white,
                     foregroundColor: Colors.black,
-                    onPressed: () => [],
+                    onPressed: () => [
+                      Navigator.push(
+                      // Resposável de ir para outra tela
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Homepage(),
+                      ),),
+                  ],
                     child: const Icon(
                       Icons.save,
                       size: 50,

@@ -81,14 +81,16 @@ class _LoginPageState extends State<LoginPage> {
                         backgroundColor: Color.fromARGB(255, 255, 255, 255),
                       ),
                       onPressed: () => {
-                        formKey.currentState?.validate(),
-                        Navigator.push(
-                          // Resposável de ir para outra tela
+                        if (formKey.currentState?.validate() == true) {
+                             Navigator.push(// Resposável de ir para outra tela
                           context,
                           MaterialPageRoute(
                             builder: (context) => Homepage(),
                           ),
                         ),
+                        }
+                        
+                       
                       },
                       child: Text(
                         "Entrar",
