@@ -26,6 +26,7 @@ class _HomepageState extends State<Homepage> {
               Padding(
                 padding: const EdgeInsets.only(left: 45),
                 child: FloatingActionButton(
+                    heroTag: null, //quando ha mais de um FloatingActionButton utilizar 
                     onPressed: () => {
                         Navigator.push( // Resposável de ir para outra tela
                           context,
@@ -43,6 +44,7 @@ class _HomepageState extends State<Homepage> {
               Padding(
                 padding: const EdgeInsets.only(right: 45),
                 child: FloatingActionButton(
+                    heroTag: null, //quando ha mais de um FloatingActionButton utilizar 
                     backgroundColor: Colors.white, 
                     foregroundColor: Colors.black,
                     onPressed: () => [], 
