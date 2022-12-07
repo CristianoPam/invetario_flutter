@@ -110,6 +110,15 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(color: Colors.black),
                       ),
                     )),
+                    
+                   
+                    TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 20),
+                    ),
+                    onPressed: null,
+                    child: const Text('Esqueci senha ou cadastar'),
+                    ),
               ],
             ),
           ),
