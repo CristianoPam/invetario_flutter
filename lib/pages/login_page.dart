@@ -5,7 +5,7 @@ import 'package:invetario_flutter/pages/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
-
+  
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -14,36 +14,47 @@ class _LoginPageState extends State<LoginPage> {
   final formKey = GlobalKey<
       FormState>(); //formeKey vai carregar a validação dos TextFormFild para Button
 
+  bool saved = false;  //variável saved
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromARGB(255, 231, 219, 219),
-      body: Padding(
-        padding: EdgeInsets.all(10),
-        //espaçamento de fora
-        child: Center(
-          child: Form(
-            key: formKey,
-            child: ListView(
-              children: [
-                SizedBox(
-                  width: 300,
-                  height: 300,
-                  child: Image.asset('assets/images/logo.png'),
-                ),
+    return WillPopScope(
+      onWillPop: () async {
+        if(!saved){
+          return false;
 
-                Divider(),
-
-                TextFormField(
-                  autofocus:
-                      true, //quando acessar essa tela, vai focar nesta campo
-                  keyboardType: TextInputType
+        }
+        return true;
+      },
+      child: Scaffold(
+          backgroundColor: Color.fromARGB(255, 231, 219, 219),
+          body: Padding(
+            padding: EdgeInsets.all(10),
+            //espaçamento de fora
+            child: Center(
+              child: Form(
+                key: formKey,
+                child: ListView(
+                  children: [
+                    SizedBox(
+                      width: 300,
+                      height: 300,
+                      child: Image.asset('assets/images/logo.png'),
+                    ),
+    
+                    Divider(),
+    
+                    TextFormField(
+                      autofocus:
+                          true, //quando,)
+                                //acessar essa tela, vai focar nesta campo
+                      keyboardType: TextInputType
                       .text, // carrega o teclado para somente númerico se for o caso
-                  style: new TextStyle(color: Colors.black, fontSize: 20),
-                  decoration: InputDecoration(
+                      style: new TextStyle(color: Colors.black, fontSize: 20),
+                      decoration: InputDecoration(
                       labelText: "USUÁRIO",
                       labelStyle: TextStyle(color: Colors.black)),
-                  validator: (String? value) {
+                      validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       //valida se é vazio ou null
                       return 'Usuário Obrigatório';
@@ -65,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                       labelText: "SENHA",
                       labelStyle: TextStyle(color: Colors.black)),
                   validator: (String? value) {
-                    if (value == null || value.isEmpty) {
+                    if (value == null || value.isEmpty) {                      
                       return 'Senha Obrigatória';
                     }
                     return null;
@@ -81,16 +92,18 @@ class _LoginPageState extends State<LoginPage> {
                         backgroundColor: Color.fromARGB(255, 255, 255, 255),
                       ),
                       onPressed: () => {
-                        if (formKey.currentState?.validate() == true) {
-                             Navigator.push(// Resposável de ir para outra tela
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Homepage(),
-                          ),
-                        ),
-                        }
-                        
-                       
+                        if (formKey.currentState?.validate() == true)
+                          {
+                            saved=true,
+                            Navigator.push(
+                              // Resposável de ir para outra tela
+                              context,
+                              MaterialPageRoute(
+                                
+                                builder: (context) => Homepage(),
+                              ),
+                            ),
+                          }
                       },
                       child: Text(
                         "Entrar",
@@ -102,6 +115,6 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
-    );
+    ));
   }
 }

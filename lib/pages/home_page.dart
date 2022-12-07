@@ -26,13 +26,14 @@ class _HomepageState extends State<Homepage> {
                   heroTag:
                       null, //quando ha mais de um FloatingActionButton utilizar
                   onPressed: () => {
-                    Navigator.push(
+                    Navigator.pop(context)
+                   /* Navigator.push(
                       // Resposável de ir para outra tela
                       context,
                       MaterialPageRoute(
                         builder: (context) => const LoginPage(),
                       ),
-                    )
+                    )*/
                   },
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.black,
